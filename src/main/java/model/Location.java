@@ -1,14 +1,18 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import reflection.Ignore;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Location {
     private String name;
-    private String type;
-    private String county;
+    private String country;
     private String state;
     private String city;
-    private String latitude;
-    private String longitude;
-    private String weather;
+    @Ignore
+    private Point point;
+    @Ignore
+    private Weather weather;
 
     public String getName() {
         return name;
@@ -18,20 +22,12 @@ public class Location {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getCountry() {
+        return country;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getState() {
@@ -50,27 +46,24 @@ public class Location {
         this.city = city;
     }
 
-    public String getLatitude() {
-        return latitude;
+    public Point getPoint() {
+        return point;
     }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
+    public void setPoint(Point point) {
+        this.point = point;
     }
 
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getWeather() {
+    public Weather getWeather() {
         return weather;
     }
 
-    public void setWeather(String weather) {
+    public void setWeather(Weather weather) {
         this.weather = weather;
+    }
+
+    @Override
+    public int hashCode() {
+        return point.toString().hashCode();
     }
 }

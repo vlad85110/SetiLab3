@@ -1,0 +1,10 @@
+{
+  "baseURL": "https://graphhopper.com/api/1/geocode",
+  "params":
+    {
+      "locale": "en",
+      "key": "a432ff40-a57c-4044-a0f7-8ff63180cf1e"
+    },
+  "locationNameParam": "q",
+  "resultsKeyName": "hits"
+}
